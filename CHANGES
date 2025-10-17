@@ -1,0 +1,37 @@
+
+
+#
+# Unless you have a better idea, follow this format!
+# If you have a better idea, post to Discord or the list (see README)
+# Please prepend ABOVE this comment.
+#
+0.00_000  Fri 17 Oct 2025
+   ***>>> This is not a real version!  Example only.
+   ***>>> Please PREPEND to this file, so that readers can
+          more easily find what they want near the top.
+
+   - Minor change (reader might not want to see it)
+   * Major change (reader probably wants to see it)
+   ! Breaking change (reader should be alarmed & afraid)
+
+   add section name if you feel like it
+   - bah
+   - buh
+   * bah buh.
+   ! beep beep. Deprecation soon
+
+   use whatever case, tense you like.  just make sure each line is:
+     = within 76 columns @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+     = preferably 72     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+   try not to edit old typos, unless it is misleading, because like,
+   i still want git-blame(1) to work y'know.... so just don't :)
+
+   [[ for that reason you also do not need to add your name; just
+      make sure your git is well-fed and configured correctly! ]]
+
+   [[ if we end up not versioning, just the date alone is fine. ]]
+   [[ however, if we do version, developer releases should have an
+      UNDERSCORE per the tradition of Perl programs.  beyond that,
+      just use whatever number your heart desires. :)  try to make
+      them follow lexicographical order though, as it can be a pain
+      to have to manually sort git-tag(1) output. :# ]]
