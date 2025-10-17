@@ -12,3 +12,8 @@
 
 Our last meeting decided between one of two projects.
 But it's not too late to propose new ones!
+
+
+## Contributing
+
+Read [HACKING](HACKING)
