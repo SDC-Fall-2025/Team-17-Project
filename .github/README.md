@@ -16,4 +16,4 @@ But it's not too late to propose new ones!
 
 ## Contributing
 
-Read [HACKING](HACKING)
+Read [HACKING](../HACKING)
