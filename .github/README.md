@@ -4,7 +4,7 @@
 
 * Editing [our team site][st],
 * Posting to [our Discord server][dc],
-* Or emailing [our mailing list][ls]: <wisc-sdc-fa25-team@rapidcow.org>
+* Or emailing [our mailing list][ls]: <wisc-sdc-fa25-team@list.rapidcow.org>
 
 [st]: https://rapidcow.github.io/site-wisc-sdc-fa25-team/ideas/
 [dc]: https://discord.com/channels/1428212879026552872
