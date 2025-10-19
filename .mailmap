@@ -1,0 +1,21 @@
+#
+# .mailmap - git-log(1) canonicalization
+# Please follow the gitmailmap(5) format.  That's `man 5 gitmailmap'
+# in your terminal of a Unix-like operating system (e.g. Mac, Linux).
+# Or visit (with URIs ordered from short to long):
+#
+#   <https://git-scm.com/docs/gitmailmap>
+#   <https://man.archlinux.org/man/gitmailmap.5>
+#   <https://man.he.net/?topic=gitmailmap&section=5>
+#   <https://man7.org/linux/man-pages/man5/gitmailmap.5.html>
+#   <https://manpages.debian.org/trixie/git-man/gitmailmap.5.en.html>
+#   <https://www.kernel.org/pub/software/scm/git/docs/gitmailmap.html>
+#   <https://manpages.ubuntu.com/manpages/noble/en/man5/gitmailmap.5.html>
+#   <https://leaf.dragonflybsd.org/cgi/web-man?command=gitmailmap&section=5>
+#   <https://manpages.opensuse.org/Tumbleweed/git-core/gitmailmap.5.en.html>
+#   <https://man.freebsd.org/cgi/man.cgi?query=gitmailmap&sektion=5&manpath=FreeBSD%2014.3-RELEASE%20and%20Ports>
+#
+
+Ethan Meng       <ethan.meng@wisc.edu> <uwisc@endfind.me>
+Deyan Antonov    <dantonov@wisc.edu>
+Bridget Wu       <111709846+BridgetWu@users.noreply.github.com>
