@@ -28,4 +28,95 @@ I am not your leader today, but I hope y'all are still with me...
 Remember to WRAP your lines at column 72/76/80 so that the text
 looks good IRRESPECTIVE of any fancy IDE or Gitweb code browser.
 
-Hack away! ~ethan
+
+*** Setup
+
+The SvelteKit frontend is in web/ and the Flask backend is in app/.
+
+***--> Node.js + pnpm
+
+Install a reasonably new version of Node.js <https://nodejs.org/en/download>
+and corepack <https://github.com/nodejs/corepack>.  If the Node.js is new
+enough but not too new (not before 14.19.0, and before 25.0.0), it will be
+bundled with corepack.  If your system has a package manager (in particular
+Arch Linux), DO NOT RUN "npm install -g corepack" since your /usr/* files
+are managed by your system package manager.  In fact, do not even TRY to run
+"sudo npm <anything>"; in doing so you will make package manager your very
+sad and confused.  Instead, search for the appropriate package name that ships
+with corepack, such as <https://archlinux.org/packages/extra/any/corepack/>.
+If you happen to be using Windows, on the other hand, it is probably fine to
+run "npm install -g", since npm lives in a totally different planet away from
+your system files anyways (although I can't seem to find any WinGet distri-
+bution for corepack, so that may as well be your only option.)
+
+Then install pnpm <https://pnpm.io/installation>:
+
+    corepack enable pnpm
+    corepack use pnpm@latest-10
+
+On Windows you may use WinGet:
+
+    winget install -e --id pnpm.pnpm
+
+... among many other package managers.
+
+(See <https://pnpm.io/installation#on-windows> for a very exhaustive list
+of options.)
+
+***--> Python 3 + Poetry
+
+You surely have Python installed already or know to install it easily, right?
+
+As for Poetry, you can install it as a standalone program from a package
+manager of your choice; or use the official installer; or install with Pip.
+There are many options; pick one and go with it....
+(See also <https://python-poetry.org/docs/>)
+
+***--> Running frontend
+
+    cd app
+    pnpm run dev
+
+The automatically-generated is at times helpful :)
+
+***--> Running backend
+
+I assume you are returned to the toplevel directory for this.  (That is,
+when you run `git rev-parse --show-toplevel', it should print nothing.)
+After you (somehow) install Poetry, you activate an environment first:
+
+    cd web
+    poetry install  # Poetry automatically picks a location for your virtual env
+
+    ### OR.... (if you prefer to do it yourself)
+
+    python3 -m venv <path>
+    . <path>/bin/activate            # on Unix (macOS, Linux, BSD, etc.)
+    <path>\Scripts\Activate.bat    REM Windows (Command Prompt or cmd.exe)
+    <path>\Scripts\Activate.ps1      # Windows (PowerShell)
+
+    # Tell poetry to use the virtual environment we are using; see
+    # <https://python-poetry.org/docs/configuration/#local-configuration>
+    poetry config virtualenvs.create false --local
+
+Then install dependencies:
+
+    poetry install
+
+Now you can finally run the backend:
+
+    ##### If you let poetry manage your environment above:
+    cd src
+    poetry run python -m clubradar  # runs on port 8000 by default, see -h for options
+
+    ### OR... activate the environment by entering the command you see on screen:
+    poetry env activate
+    # OR use the `poetry shell' subcommand
+    poetry self add poetry-plugin-shell
+    poetry shell
+    ### and NOW you can run python -m directly.
+    cd src
+    python -m clubradar
+
+    ##### If you manage your own environment, just skip to the last step!
+    python -m clubradar

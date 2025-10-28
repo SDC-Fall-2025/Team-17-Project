@@ -1,0 +1,13 @@
+#!perl
+# we ask as little XS libs as we can, since performance is not key...
+requires 'JSON::PP';
+requires 'TOML::Tiny';
+# the rest should be core
+foreach my $CORE (map [split], split /^/, <<CORE)
+	File::Spec
+	FindBin
+	Test::More
+CORE
+{
+	requires @$CORE;
+}

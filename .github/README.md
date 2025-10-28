@@ -1,16 +1,22 @@
-# [Insert Project Name]
+# Club Radar
 
-We are down to our **finalists**!
+This is the `bip/club-radar` branch.  The "bip" stands for "Branch of
+Interest-worthy Project".  Club Radar received the most votes as of Monday
+at 3 votes!  The runner-ups were "Minecraft with Computer Vision" and
+"Task Manager".
 
-* [Club radar](https://rapidcow.github.io/site-wisc-sdc-fa25-team/ideas/club-radar) [3 votes]
-* [Task manager](https://rapidcow.github.io/site-wisc-sdc-fa25-team/ideas/task-manager) [2 votes]
-* [Minecraft with Computer Vision](https://rapidcow.github.io/site-wisc-sdc-fa25-team/ideas/minecraft-cv) [2 votes]
+Merge this branch into master if we ultimately decide to go for this project.
 
-I will be adding some base code for each finalist
-in a BIP (Branch of Interest-worthy Project):
+See pitch for ideas and stuff: <https://rapidcow.github.io/site-wisc-sdc-fa25-team/ideas/club-radar>
 
-* [bip/task-manager](https://github.com/SDC-Fall-2025/Team-17-Project/tree/bip/task-manager)
-  (tentative stack: Kotlin with SQLite, develop in [Android Studio](https://developer.android.com/studio))
+## Software Stack
 
-We will probably meet sometime this week, so hopefully
-by then we can go with a project and get started for real.
+It looks like we are going with SvelteKit above all else...
+(but is a separate backend really necessary?)  Either way, since
+I am definitely not paying anything out of my pocket for this,
+we are going with the only options that can be hosted on Vercel
+(between Flask and FastAPI that is.)
+
+## Contributing
+
+Read [HACKING](../HACKING)
