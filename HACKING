@@ -35,19 +35,12 @@ The SvelteKit frontend is in web/ and the Flask backend is in app/.
 
 ***--> Node.js + pnpm
 
-Install a reasonably new version of Node.js <https://nodejs.org/en/download>
-and corepack <https://github.com/nodejs/corepack>.  If the Node.js is new
-enough but not too new (not before 14.19.0, and before 25.0.0), it will be
-bundled with corepack.  If your system has a package manager (in particular
-Arch Linux), DO NOT RUN "npm install -g corepack" since your /usr/* files
-are managed by your system package manager.  In fact, do not even TRY to run
-"sudo npm <anything>"; in doing so you will make package manager your very
-sad and confused.  Instead, search for the appropriate package name that ships
-with corepack, such as <https://archlinux.org/packages/extra/any/corepack/>.
-If you happen to be using Windows, on the other hand, it is probably fine to
-run "npm install -g", since npm lives in a totally different planet away from
-your system files anyways (although I can't seem to find any WinGet distri-
-bution for corepack, so that may as well be your only option.)
+Install Node.js 22.x by either installing from here:
+<https://nodejs.org/en/download> (probably the most straightforward
+way to install Node.js if you are Windows), or by using a Node
+version manager such as <https://github.com/nvm-sh/nvm> and
+<https://github.com/tj/n>.
+(This is required for the Svelte-Vercel adapter plugin to work...)
 
 Then install pnpm <https://pnpm.io/installation>:
 
