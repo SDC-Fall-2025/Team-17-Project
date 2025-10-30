@@ -21,3 +21,9 @@ would be silly and lame.... so yeah.
 FORGOT TO PASTE THE COMMAND IN damn it DX why me so clumsy ughhghgh
 
 $ xclip -o -sel clip | while read a b; do echo "$(date -d "2025-10-30T${a%.*}")" $b; done
+
+That was not the right command, hold on
+
+$ xclip -o -sel clip | while read a b; do echo "$(date -d "2025-10-30T${a%.*}" +%s).${a#*.}" $b; done
+
+this one is more complete
