@@ -1,20 +1,19 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npm --prefix web run build",
-  "outputDirectory": "web/build",
-  "functions": {
-    "app/*.py": {
-      "runtime": "@vercel/python"
-    }
-  },
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/app/(.*)",
-      "destination": "/app/$1.py"
+      "src": "web/package.json",
+      "use": "@vercel/static-build"
     },
     {
-      "source": "/(.*)",
-      "destination": "/web/$1"
+      "src": "api/pkg/clubradar/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "api/pkg/clubradar/wsgi.py"
     }
   ]
 }
