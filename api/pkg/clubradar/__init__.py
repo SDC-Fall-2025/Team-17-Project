@@ -16,7 +16,7 @@ class App(object):
     def to_wsgi_app(self):
         app = flask.Flask(self.name)
 
-        @app.route('/')
+        @app.route('/api/v1/greet')
         def index():
             payload = json.dumps({'message': self.greet()})
             return flask.Response(payload, content_type='application_json')
