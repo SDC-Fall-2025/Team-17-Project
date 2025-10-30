@@ -7,7 +7,7 @@ use TOML::Tiny qw(from_toml);
 use Test::More tests => 1;
 
 my $js_mf = catfile($FindBin::Bin, updir, 'web', 'package.json');
-my $py_mf = catfile($FindBin::Bin, updir, 'app', 'pyproject.toml');
+my $py_mf = catfile($FindBin::Bin, updir, 'api', 'pyproject.toml');
 
 note "package.json is $js_mf";
 my $jsver = do {
