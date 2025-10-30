@@ -1,0 +1,10 @@
+Content-Location: https://vercel.com/eyzmeng/wisc-sdc-fa25-team-17-bip-club-radar/HuPaFsiL8GqCHPmEzDF4gD6z7PCh
+
+1761882856.466 Running build in Washington, D.C., USA (East) – iad1
+1761882856.466 Build machine configuration: 2 cores, 8 GB
+1761882856.617 Cloning github.com/eyzmeng/src-wisc-sdc-fa25-team (Branch: master, Commit: d3f0419)
+1761882856.623 Previous build caches not available.
+1761882856.883 Cloning completed: 266.000ms
+1761882857.202 Running "vercel build"
+1761882857.616 Vercel CLI 48.6.0
+1761882861.207 sh: line 1: vite: command not found
