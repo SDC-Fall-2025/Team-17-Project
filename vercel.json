@@ -1,0 +1,20 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm --prefix web run build",
+  "outputDirectory": "web/build",
+  "functions": {
+    "app/*.py": {
+      "runtime": "@vercel/python"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/app/(.*)",
+      "destination": "/app/$1.py"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/web/$1"
+    }
+  ]
+}
