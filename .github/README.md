@@ -13,6 +13,8 @@ in a BIP (Branch of Interest-worthy Project):
   (tentative stack: Kotlin with SQLite, develop in [Android Studio](https://developer.android.com/studio))
 * [bip/club-radar](https://github.com/SDC-Fall-2025/Team-17-Project/tree/bip/club-radar)
   (SvelteKit over Flask, live at [clubradar.endfindme.com](https://clubradar.endfindme.com/api/v1/greet))
+* [bip/minecraft-cv](https://github.com/SDC-Fall-2025/Team-17-Project/tree/bip/minecraft-cv)
+  (OpenCV Python)
 
 We will probably meet sometime this week, so hopefully
 by then we can go with a project and get started for real.
