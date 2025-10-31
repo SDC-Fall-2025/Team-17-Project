@@ -82,7 +82,7 @@ pretty neat i'd say
 let's promote this to Production! (i just configured a cname record that
 points to this; people might appreciate a more persistent name too... :)
 
-Content-Location https://vercel.com/eyzmeng/wisc-sdc-fa25-team-17-bip-club-radar/HagetdnX3od6Bo5pr8xpJw3Sb9qp
+Content-Location: https://vercel.com/eyzmeng/wisc-sdc-fa25-team-17-bip-club-radar/HagetdnX3od6Bo5pr8xpJw3Sb9qp
 
 1761904150.315 Running build in Washington, D.C., USA (East) – iad1
 1761904150.316 Build machine configuration: 2 cores, 8 GB
