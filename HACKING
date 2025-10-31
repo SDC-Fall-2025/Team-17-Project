@@ -28,4 +28,10 @@ I am not your leader today, but I hope y'all are still with me...
 Remember to WRAP your lines at column 72/76/80 so that the text
 looks good IRRESPECTIVE of any fancy IDE or Gitweb code browser.
 
-Hack away! ~ethan
+
+SETUP
+
+install poetry <https://python-poetry.org/docs/> then run
+
+	poetry install
+	poetry run python -m mccv
