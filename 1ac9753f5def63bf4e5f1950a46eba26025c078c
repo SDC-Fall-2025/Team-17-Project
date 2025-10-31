@@ -1,0 +1,171 @@
+ugh i swear i need to rant about this (thank god github no
+longer displays notes so i can write as much as i want here)
+
+like just look at this <https://github.com/orgs/community/discussions/23123>
+
+>> Is there a way to include a link in a commit message or PR
+>> that doesn’t create a reference on the target repository?
+>>
+>> Say I’m developing a project at bstinsonmhk/foo and I rely
+>> on a library anotheruser/bar, Can I link to anotheruser/bar/
+>> issues/1234 without it showing up in their comment stream?
+>> They may not care that I’m referencing their issue for my
+>> own administrative purposes.
+>
+> No, there isn’t a way to prevent that cross-linking from occurring.
+> On the flip side, that cross-link event is only visible to the
+> people that have access to the repository from which the link
+> originated.  So if you link to a public repository from a private
+> repository of your own, the only people that will be able to
+> see the link event is yourself and whomever you grant access to
+> your private repository.
+>
+> I hope that helps!
+
+"I hope this helps" hope WHAT helps????  that "sorry, here at
+Github we can't make you comfortable make personal notes in your
+commit messages. because we don't care and you'll just learn to
+deal with it" helps?  like look at yourself Github - LOOK AT YOUR-
+SELF.  can you tell me with a straight face that you are genuinely
+interested in fostering a productive environment where people can
+just quietly mind their own business; and NOT make everyone's life
+a living hell, spammed with notifications and @mentions - like the
+way TWITTER QUOTE RE-TWEETS ARE???  can you for ONCE, just ONE
+fricking time, not shove in people's faces everywhere, that fancy
+whatever @-username is you have people pick on your platform, and
+like, actually consider the possibility that someone - despite not
+being as old as fossil living in the so-called "stone age" of com-
+puters - would actually appreciate that these "features" of yours be
+opt-in, or at the very least opt-out-able?  Is it so hard to ask
+for basic privacy and for you to honor our freedom to LINK GitHub
+issues/PRs; or use @-stuff where the stuff is actually part of my
+CODE, and never meant in the slightest way to be an obnoxious ping,
+TO A USER WITH SOME FANCY USERNAME LIKE @SINCE OR @F USERNAME,
+THAT I DON'T EVEN F*CKING CARE ABOUT??!!
+
+do you even have ANY idea how POSSESSIVE the thought of interpret-
+ing PLAIN TEXT in form of your disgusting, repugnant proprietary
+crap-ridden usernames and mentions and - th- this isn't TWITTER
+GitHub!  why are you trying so hard to turn GitHub into Twitter?!
+
+anyways, rant aside!  there are fortunately more to this than this
+obnoxious non-answer, as well as workarounds that have already been
+figured out by people with an actual BRAIN.  Here slightly below
+the same discussion, we find
+<https://github.com/orgs/community/discussions/23123#discussioncomment-3239236>:
+
+> I’ve seen usage of https://togithub.com/ (a redirect domain) to achieve
+> cross-linking without creating references.
+>
+> This domain is what GitHub - renovatebot/renovate: Universal dependency update
+> tool that fits into your workflows. <https://github.com/renovatebot/renovate>
+> uses when the bot makes comments.
+>
+> Using an external domain for redirection is not a native GitHub feature
+> tough, and of course the alternative domain may simply vanish or do evil
+> without warning.
+
+but of course that is a valid concern, as expressed similarly on HN
+<https://news.ycombinator.com/item?id=36891967> (root thread node
+<https://news.ycombinator.com/item?id=36890598>):
+
+>>>> (OP)
+>>>> I've been quite embarrassed to discover that linking to a github issue
+>>>> in another repo will create a back link in the linked issue. Removing
+>>>> the link doesn't undo it either, you need to delete the issue
+>>>> completely.
+>>>>
+>>>> I wish I could turn this feature off.
+>>>
+>>> (Replier 1, grayed-out with color #5a5a5a)
+>>> If you really, really want to avoid it I'm pretty sure you could
+>>> use a link shortener (bit.ly etc) behind markdown, and it would mask it
+>>> (haven't tested)
+>>>
+>>> But please only do this for personal repos where you're the only
+>>> contributor because otherwise this looks incredibly sus for anyone
+>>> to click on
+>>
+>> (OP, root node of the first link)
+>> I think I stumbled on togithub.com, which simply does a 302 redirect
+>> to github.com, which keeps the url understandable and doesn't create
+>> the backlink.  But I have no idea who actually runs the servers, so
+>> I instead went back to a text file.
+>>
+>> It's only personal repos, that's why I don't want to create the
+>> irrelevant noise for lots of other people.
+>
+> (Replier 2)
+> Reminds me of enwp.org for Wikipedia redirects/shortening.  I assume
+> a German owns it, since dewp.org does the same thing.
+>
+> Seems dangerous to use, if you come to rely on it, but sometimes handy.
+
+So there has been this other suggestion with the (undocumented)
+redirect.github.com...
+<https://github.com/orgs/community/discussions/23123#discussioncomment-11891227>
+
+> You can use  redirect.github.com instead of github.com in your reference
+> URL. This is what dependabot and Renovate Bot use in release notes. I am
+> trying to get this documented so it is easier to find: github/docs#35987
+> <https://github.com/github/docs/pull/35987> (Document how to avoid backlinks for references)
+
+and it would seem a similar project took heed of the fact that
+Dependabot (one of github's own child?) uses it to avoid noisy
+cross-referencing:
+<https://github.com/renovatebot/renovate/discussions/10796#discussioncomment-10429342>
+
+>>> (Discussion)
+>>> I noticed that some links in  Renovate output use togithub.com,
+>>> which apparently redirects to the same URL on github.com.  Why?
+>>
+>> Dependabot uses redirect.github.com maybe a better option.
+>
+> Thank you for the suggestion. I copied your suggestion into this issue:
+>
+> Transfer Renovate's togithub.com redirect domain to GitHub #29370
+> <https://github.com/renovatebot/renovate/issues/29370>
+
+where the issue starts (helpfully) with a rationale to move away from togithub.com:
+
+> Renovate's togithub.com redirect domain got blocked by GitHub's
+> Umbrella protection system. This block is now reverted, so the
+> redirect works properly again.  But maybe having the domain
+> controlled by GitHub officially is better.
+>
+> [...]
+>
+> Related discussion:
+> https://togithub.com/ is currently blocked by OpenDNS #27568
+> <https://github.com/renovatebot/renovate/discussions/27568>
+>
+
+which is then superceded in "Use GitHub's official redirect.github.com
+domain and drop togithub.com domain #30980":
+<https://github.com/renovatebot/renovate/issues/30980>
+
+and merged in "refactor(github): use redirect.github.com #31025":
+<https://github.com/renovatebot/renovate/pull/31025>
+
+either way redirect.github.com it is from now on!  (in commit messages
+that is; you probably have already noticed i made ZERO changes in this
+git note... that's because github doesn't CARE about notes since 2014
+<https://github.blog/news-insights/git-notes-display/>, which i thought
+was tragic, but it is in fact JUST what i needed since that means any-
+thing I write here, github WON'T display and thus github WON'T link!!!
+(i mean i dare it to link - i dare you, github.  try linking this --
+oh what's that?  you're too busy with managing your pretty little GitHub
+usernames and GFM, and ✨AI-Powered✨ programming with Copilot, instead
+of improving actually important issues like respecting plain-text patches
+sent by folks from email, and NOT pinging people to death when there is
+any occurrence of @<alphanumeric text> anywhere at all, even if commits
+literally do not come from you, and to think they are and you have the
+right to interpret them as unsolicited pings is just presumptuous of you.
+<https://github.com/tmux/tmux/issues/530#issuecomment-247430269>
+Shame on you, github.  Go eat dirt or something - or better, GO TOUCH
+GRASS.  Stop taking inspiration from the Twitters and Discords!!!
+your fancy usernames that you seem so proud of???  NO ONE F*CKING CARES!
+Git is never YOUR software, and will NEVER be your software - so GET LOST
+with this inanity of yours and LEAVE THE REST OF US ALONE!)
+
+Host: RCs-T480s.local
