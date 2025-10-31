@@ -6,11 +6,8 @@
       "use": "@vercel/static-build"
     },
     {
-      "src": "api/pkg/clubradar/wsgi.py",
-      "use": "@vercel/python",
-      "config": {
-        "cwd": "api"
-      }
+      "src": "api/wsgi.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
