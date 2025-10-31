@@ -76,7 +76,6 @@ the Git object database by following the tree at HEAD.
 =cut
 
 our $ROOT = '.';
-my $UNIX_SEP = q{/};
 
 my ($cat_pid, $cat_rdr, $cat_wtr);
 
