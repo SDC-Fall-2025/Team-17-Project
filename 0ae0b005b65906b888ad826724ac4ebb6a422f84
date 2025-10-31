@@ -45,4 +45,46 @@ index 6331857..2a3d572 100644
 +  "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd"
  }
 
+wait it's already there
+
 QUÉ???
+
+GPT says:
+
+> Vercel runs pnpm install, but:
+> 
+>  ERROR  packages field missing or empty
+> 
+> means pnpm thought your repo was a workspace root, i.e. it found
+> a pnpm-workspace.yaml file — but that file either:
+> 
+>   * has no packages: key,
+>   * or has packages: defined but empty,
+>   * or the path to your actual app folder isn’t included.
+> 
+> So pnpm says “nothing to install.”
+
+ok.....
+
+$ env TERM=dumb ex pnpm-workspace.yaml
+"pnpm-workspace.yaml" 2 lines, 35 characters
+:set number
+:%p
+     1  onlyBuiltDependencies:
+     2    - esbuild
+
+let's just add something to it i guess
+
+:1i
+     1  packages:
+  - .     2
+     3  .
+:%p
+     1  packages:
+     2    - .
+     3  onlyBuiltDependencies:
+     4    - esbuild
+:wq
+"pnpm-workspace.yaml" 4 lines, 51 characters
+
+hope that this would work
