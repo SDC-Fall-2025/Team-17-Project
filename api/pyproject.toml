@@ -13,12 +13,6 @@ dependencies = [
 
 [tool.poetry]
 packages = [{ include = "clubradar", from = "lib" }]
-# Sadly, Vercel will have to see right above us, or
-# it would cruelly ignore everything outside of its
-# immediate parent directory.  But that doesn't mean
-# I want this to go into my virtual environment! >:c
-# Hence this rule...  ( i hope it works that is )
-exclude = [ "requirements.txt" ]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
