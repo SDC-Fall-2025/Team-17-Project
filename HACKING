@@ -31,7 +31,7 @@ looks good IRRESPECTIVE of any fancy IDE or Gitweb code browser.
 
 *** Setup
 
-The SvelteKit frontend is in web/ and the Flask backend is in app/.
+The SvelteKit frontend is in web/ and the Flask backend is in api/.
 
 ***--> Node.js + pnpm
 
@@ -67,7 +67,7 @@ There are many options; pick one and go with it....
 
 ***--> Running frontend
 
-    cd app
+    cd web
     pnpm install    # or `pnpm i' if you are feeling lazy
     pnpm run dev
 
@@ -79,14 +79,14 @@ I assume you are returned to the toplevel directory for this.  (That is,
 when you run `git rev-parse --show-toplevel', it should print nothing.)
 After you (somehow) install Poetry, you activate an environment first:
 
-    cd web
+    cd app
     poetry install  # Poetry automatically picks a location for your virtual env
 
     ### OR.... (if you prefer to do it yourself)
 
     python3 -m venv <path>
     . <path>/bin/activate            # on Unix (macOS, Linux, BSD, etc.)
-    <path>\Scripts\Activate.bat    REM Windows (Command Prompt or cmd.exe)
+    <path>\Scripts\Activate.bat  & REM Windows (Command Prompt or cmd.exe)
     <path>\Scripts\Activate.ps1      # Windows (PowerShell)
 
     # Tell poetry to use the virtual environment we are using; see
@@ -100,7 +100,7 @@ Then install dependencies:
 Now you can finally run the backend:
 
     ##### If you let poetry manage your environment above:
-    cd src
+    cd pkg
     poetry run python -m clubradar  # runs on port 8000 by default, see -h for options
 
     ### OR... activate the environment by entering the command you see on screen:
@@ -109,7 +109,7 @@ Now you can finally run the backend:
     poetry self add poetry-plugin-shell
     poetry shell
     ### and NOW you can run python -m directly.
-    cd src
+    cd pkg
     python -m clubradar
 
     ##### If you manage your own environment, just skip to the last step!
