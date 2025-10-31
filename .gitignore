@@ -1,0 +1,15 @@
+
+##****---> Python
+# pyenv local
+.python-version
+# poetry config --local
+poetry.toml
+
+# Cache 6_6
+*.py[cod]
+
+# Common virtual environment names
+# <https://stackoverflow.com/a/69084457>
+# <https://docs.python.org/3/tutorial/venv.html#creating-virtual-environments>
+venv
+.venv
