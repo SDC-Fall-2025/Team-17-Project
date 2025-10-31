@@ -6,14 +6,14 @@
       "use": "@vercel/static-build"
     },
     {
-      "src": "api/vendor/wsgi.py",
+      "src": "api/vercel/wsgi.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "api/vendor/wsgi.py"
+      "dest": "api/vercel/wsgi.py"
     }
   ]
 }
