@@ -89,3 +89,24 @@ us are broke students who would prefer NOT to pay for a toy server to
 learn how things work???)
 
 (ugh fine let's give this guy a shot anyways....)
+
+---
+it works!  (FINALLYyYYYY it only took you like what 16 hours vercel?)
+
+1761913024.566
+GET /api/v1/greet
+Request-ID: rppbg-1761913024566-2383d6a81ec0
+Host: wisc-sdc-fa25-team-17-bip-club-radar-git-bip-club-radar-eyzmeng.vercel.app
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:144.0) Gecko/20100101 Firefox/144.0
+
+200 OK
+Route: /api/pkg/clubradar/wsgi.py
+Execution-Duration: 6ms
+Execution-Duration-Maximum: 5m
+Content-Type: application/json (i made this up i forgot to load my network panel)
+Access-Log: 127.0.0.1 - - [31/Oct/2025 12:17:04] "GET /api/v1/greet HTTP/1.1" 200 -
+
+{"message": "Hello SDC Team 17!"}
+
+oh my god wait i just realized i made an accidental factorial :x
+hope no one notices hahahahaHAHAHAHAHAHAA
