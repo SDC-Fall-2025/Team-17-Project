@@ -3,7 +3,11 @@
 #
 # scripts/poe2txt.py - Poetry.toml to requirements.txt
 #
-# A hopefully cross-platform script for:
+# A hopefully cross-platform script for... whatever.
+# I forgot what I was going to say, but this trick keeps
+# me sane, and, as a somewhat pleasant side-effect, also
+# happens to teaches Vercel how to install dependencies.
+#
 # NOTE: You should have poetry-export plugin installed:
 #     <https://github.com/python-poetry/poetry-plugin-export>
 # The command to install is:
@@ -18,7 +22,7 @@ import sys
 def main():
     backend_root = pathlib.Path(__file__).parent.parent / 'api'
     try:
-        subprocess.run('poetry export --format requirements.txt --output requirements.txt'
+        subprocess.run('poetry export --format requirements.txt --output vendor/requirements.txt'
                        .split(), check=True, cwd=os.fspath(backend_root))
     except subprocess.CalledProcessError as exc:
         if not poetry_may_have_export():
@@ -37,7 +41,7 @@ def main():
     # Compute this retroactively in case someone complains to me
     # that this command is too quiet (being an introvert in this
     # world is hard, sigh...  u.u)
-    target = backend_root / 'requirements.txt'
+    target = backend_root / 'api' / 'requirements.txt'
     print("Write", target, "OK", file=sys.stderr)
 
 def poetry_may_have_export():
