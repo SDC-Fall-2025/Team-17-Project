@@ -185,11 +185,14 @@ sub hash_object
 				Digest::SHA->new(256)
 			}
 			else {
-				croak "unknown for version 1 repository: $odb_format"
+				croak "warning: $ROOT: unknown for version 1 "
+					. "repository: $odb_format\n"
 			}
 		}
 		else {
-			croak "unknown repository version $repo_version"
+			carp "warning: $ROOT: unknown repository version: "
+				. $repo_version . ", skipping integrity check\n";
+			return
 		}
 	};
 	my $NIL = chr 0; $ctx->add("$type $size$NIL")->add($data)->hexdigest
