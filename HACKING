@@ -58,7 +58,8 @@ of options.)
 
 ***--> Python 3 + Poetry
 
-You surely have Python installed already or know to install it easily, right?
+I hope you know how to install Python :)  But do make sure it is
+modern... (Python 3.12 or newer, preferably just 3.12 though)
 
 As for Poetry, you can install it as a standalone program from a package
 manager of your choice; or use the official installer; or install with Pip.
