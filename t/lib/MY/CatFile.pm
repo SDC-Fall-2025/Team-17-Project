@@ -91,10 +91,13 @@ sub open_cat
 END {
 	if ($cat_pid) {
 		# close pipe
-		close $cat_wtr and undef $cat_wtr;
-		close $cat_rdr and undef $cat_wtr;
+		close $cat_wtr or warn "cat-file STDIN did not close cleanly: $!";
+		close $cat_rdr or warn "cat-file STDOUT did not close cleanly: $!";
 		# reap child
-		waitpid($cat_pid, 0) == $cat_pid and undef $cat_pid;
+		my $wait_ret = waitpid($cat_pid, 0);
+		$wait_ret == $cat_pid or warn "could not reap cat-file "
+			. "child $cat_pid (wait returned $wait_ret)";
+		($cat_wtr, $cat_rdr, $cat_pid) = (undef) x 3;
 	}
 }
 
@@ -108,27 +111,31 @@ sub cat
 {
 	my $sauce = $ENV{FILE_SRC} // 'disk';
 	if ($sauce eq 'disk') {
-		local $! = 0;
 		local $/;  # -0777
 		my $file = File::Spec->catfile($ROOT, @_);
 
-		open my $fh, '<', $file or croak "open <$file: $!";
+		open my $fh, '<', $file or croak "open on-disk $file: $!";
 		binmode $fh;
 
 		my $data = <$fh>;
-		$! == 0 or croak "read $file: $!";
+		defined $data or croak "read on-disk $file: @{[eof ? 'EOF' : $!]}";
 
-		close $fh;
+		close $fh or carp "close on-disk $file: $!";
 		return $data;
 	}
 	my $place = $GIT_PLACES{$sauce} or croak "invalid FILE_SRC: $sauce";
 	my $pathspec = $place . join '/' => @_;
-	open_cat unless $cat_pid;
+	open_cat or die "could not fork cat-file: $!\n" unless $cat_pid;
 	local $/ = chr 0;
 
 	print $cat_wtr $pathspec, $/ or croak "cat-file $pathspec: pipe write: $!";
 	$cat_wtr->flush;
-	defined (my $info = <$cat_rdr>) or croak "cat-file $pathspec: pipe read: $!";
+	# Check feof(3); the $! on an EOF read may be misleading (...
+	# even though some fread(3)s hang more often than report $! in
+	# practice.  See "Re: Best way to handle readline errors?":
+	# <https://www.perlmonks.org/?node_id=583456>)
+	defined (my $info = <$cat_rdr>) or croak "cat-file $pathspec: "
+		. "pipe read: @{eof ? 'EOF' : qq[$!]}";
 	chomp $info;
 
 	unless ($info =~ /\A([[:xdigit:]]+) (blob|tree|tag|commit|submodule)(?: ([[:digit:]]+))?\z/) {
@@ -139,13 +146,21 @@ sub cat
 	my ($oid, $type, $size) = ($1, $2, $3);
 	$type eq 'blob' or croak "cat-file $pathspec: expecting blob, got $type";
 
-	my $data; { local $/ = \$size; defined ($data = <$cat_rdr>) or croak "cat-file $pathspec: pipe read: $!" }
-	# Basic integrity checks....
-	my ($trailer, $real, $hash);
-	($trailer = do { local $/ = \1; <$cat_rdr> }) eq chr 0 or croak "cat-file: bad EOF byte "
+	# Read blob content (with basic integrity checks)
+	my ($data, $real, $hash);
+	defined ($data = do { local $/ = \$size; <$cat_rdr> })
+		or croak "cat-file $pathspec: pipe read: @{[eof ? 'EOF' : $!]}";
+	($real = length $data) == $size
+		or croak "cat-file $pathspec: expected size $size, read $real";
+	($hash = hash_object($type, $size, $data) // $oid) eq $oid
+		or croak "cat-file $pathspec: bad oid $oid (got $hash)";
+
+	# git-cat-file(1) terminates the object content with a null byte.
+	my $trailer;
+	defined ($trailer = do { local $/ = \1; <$cat_rdr> })
+		or croak "cat-file $pathspec: pipe read: @{[eof ? 'EOF' : $!]}";
+	$trailer eq chr 0 or croak "cat-file $pathspec: bad EOF byte "
 		. "(expected char 0x00, got 0x@{[sprintf '%02X', ord $trailer]}";
-	($real = length $data) == $size or croak "cat-file $pathspec: expected size $size, read $real";
-	($hash = hash_object($type, $size, $data) // $oid) eq $oid or croak "cat-file $pathspec: bad oid $oid (got $hash)";
 	$data
 }
 
