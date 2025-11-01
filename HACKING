@@ -79,7 +79,7 @@ I assume you are returned to the toplevel directory for this.  (That is,
 when you run `git rev-parse --show-toplevel', it should print nothing.)
 After you (somehow) install Poetry, you activate an environment first:
 
-    cd app
+    cd api
     poetry install  # Poetry automatically picks a location for your virtual env
 
     ### OR.... (if you prefer to do it yourself)
@@ -100,8 +100,8 @@ Then install dependencies:
 Now you can finally run the backend:
 
     ##### If you let poetry manage your environment above:
-    cd pkg
-    poetry run python -m clubradar  # runs on port 8000 by default, see -h for options
+    cd lib
+    poetry run python -m app  # runs on port 8000 by default, see -h for options
 
     ### OR... activate the environment by entering the command you see on screen:
     poetry env activate
@@ -109,8 +109,9 @@ Now you can finally run the backend:
     poetry self add poetry-plugin-shell
     poetry shell
     ### and NOW you can run python -m directly.
-    cd pkg
-    python -m clubradar
+    cd lib
+    python -m app
 
     ##### If you manage your own environment, just skip to the last step!
-    python -m clubradar
+    cd lib
+    python -m app
