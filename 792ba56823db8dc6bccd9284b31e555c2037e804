@@ -78,3 +78,43 @@ From https://github.com/Perl/perl5
     48  EOF
 
 (the Perl code base never stops fascinating me....)
+
+actually, there is more in fact.  here is something
+i remember reading over the summer:
+
+ - https://github.com/Perl/perl5/issues/22697   [doc] perl pack rephrase #22697
+   * https://github.com/Perl/perl5/pull/23251    perlpacktut: Remove some jargon #23251
+     + https://github.com/Perl/perl5/pull/23354   Simplify sentence in perlpacktut.pod #23354
+
+the commit that ended up getting merged is
+
+commit 2a855f6e3b3d36085c5fde9a4256e6be5520c849
+Author: Stan Ulbrych <stanulbrych@gmail.com>
+   (((.mailmap didn't actually work; this is manual replacement work :v )))
+Date:   Wed Jun 4 12:27:28 2025 +0100
+
+    Simplify sentance
+
+diff --git a/pod/perlpacktut.pod b/pod/perlpacktut.pod
+index 0b8b225833..8264b6fada 100644
+--- a/pod/perlpacktut.pod	Wed Sep 04 18:07:16 2024 +0300
++++ b/pod/perlpacktut.pod	Wed Jun 04 12:27:28 2025 +0100
+@@ -41,11 +41,10 @@ of these two functions.
+
+ To see how (un)packing works, we'll start with a simple template
+ code where the conversion is in low gear: between the contents of a byte
+-sequence and a string of hexadecimal digits. Let's use C<unpack>, since
+-this is likely to remind you of a dump program, or some desperate last
+-message unfortunate programs are wont to throw at you before they expire
+-into the wild blue yonder. Assuming that the variable C<$mem> holds a
+-sequence of bytes that we'd like to inspect without assuming anything
++sequence and a string of hexadecimal digits. Let's use C<unpack>,
++since this may remind you of a hex dump or a crash message emitted by
++a program just before it fails. Assuming that the variable C<$mem> holds
++a sequence of bytes that we'd like to inspect without assuming anything
+ about its meaning, we can write
+
+    my( $hex ) = unpack( 'H*', $mem );
+
+(this NEWer diff format is based on Mercurial `hg diff'!  i think
+mercurial is pretty cool too :)
