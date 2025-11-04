@@ -59,7 +59,7 @@ From https://github.com/Perl/perl5
  * [new tag]               v5.43.4                                                        -> v5.43.4
 (system) [rapidcow@RCs-T480s perl5] (map_block_syn %)$ git rev-parse upstream/blead
 3359807b0494c8fc233491a274c6b5fe68da93fb
-(system) [rapidcow@RCs-T480s perl5] (map_block_syn %)$ git cat-file blob 3359807b0494c8fc233491a274c6b5fe68da93fb:Configure | nl -ba | sed -n 33,48p
+(system) [rapidcow@RCs-T480s perl5] (map_block_syn %)$ git cat-file blob blead:Configure | nl -ba | sed -n 33,48p
     33	cat >c1$$ <<EOF
     34	ARGGGHHHH!!!!!
     35
