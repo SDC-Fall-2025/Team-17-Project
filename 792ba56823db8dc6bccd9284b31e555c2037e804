@@ -1,0 +1,80 @@
+so i read
+
+https://github.com/Perl/perl5/blob/3359807b0494c8fc233491a274c6b5fe68da93fb/Configure#L34
+
+(system) [rapidcow@RCs-T480s tree] (main *%|+1)$ cd ~/our/fork/github.com/Perl/perl5
+(system) [rapidcow@RCs-T480s perl5] (map_block_syn %)$ git fetch upstream
+remote: Enumerating objects: 8871, done.
+remote: Counting objects: 100% (5724/5724), done.
+remote: Compressing objects: 100% (398/398), done.
+remote: Total 8871 (delta 5443), reused 5344 (delta 5326), pack-reused 3147 (from 3)
+Receiving objects: 100% (8871/8871), 10.35 MiB | 16.71 MiB/s, done.
+Resolving deltas: 100% (6420/6420), completed with 819 local objects.
+From https://github.com/Perl/perl5
+ * [new branch]            CVE-2025-40909                                                 -> upstream/CVE-2025-40909
+   8c71d4a0b5..3359807b04  blead                                                          -> upstream/blead
+ * [new branch]            book/when-are-unfeatures-disabled                              -> upstream/book/when-are-unfeatures-disabled
+ * [new branch]            davem/wip_xspod                                                -> upstream/davem/wip_xspod
+ * [new branch]            davem/xs_ast                                                   -> upstream/davem/xs_ast
+ * [new branch]            davem/xspod                                                    -> upstream/davem/xspod
+ * [new branch]            dont-use-UTF8f-for-SVs                                         -> upstream/dont-use-UTF8f-for-SVs
+ * [new branch]            goto-label-jump-fatalization-20250823                          -> upstream/goto-label-jump-fatalization-20250823
+ * [new branch]            haarg/cbuilder-cope-with-cxx                                   -> upstream/haarg/cbuilder-cope-with-cxx
+ * [new branch]            haarg/db-sub-overload-fixes                                    -> upstream/haarg/db-sub-overload-fixes
+ * [new branch]            haarg/no-test2-for-t                                           -> upstream/haarg/no-test2-for-t
+ * [new branch]            ilmari/struct-pmop-holes                                       -> upstream/ilmari/struct-pmop-holes
+ * [new branch]            leont/clone-argument                                           -> upstream/leont/clone-argument
+ * [new branch]            leont/fdopendir-dup                                            -> upstream/leont/fdopendir-dup
+ * [new branch]            leont/i386-ci                                                  -> upstream/leont/i386-ci
+ * [new branch]            leont/safe-utf8                                                -> upstream/leont/safe-utf8
+ + 823b4de61f...186c5222b2 leont/spawn                                                    -> upstream/leont/spawn  (forced update)
+   f3568ab0e5..a02bbe2367  maint-5.38                                                     -> upstream/maint-5.38
+   200a45e04e..46977a16be  maint-5.40                                                     -> upstream/maint-5.40
+   d9dcd559ee..eabd85fc91  maint-votes                                                    -> upstream/maint-votes
+ * [new branch]            parsexs-length-t_pv                                            -> upstream/parsexs-length-t_pv
+ * [new branch]            parsexs-length-t_pv-revert                                     -> upstream/parsexs-length-t_pv-revert
+ * [new branch]            regcomp-get-fq-name                                            -> upstream/regcomp-get-fq-name
+ * [new branch]            smoke-me/jkeenan/gh-23265-tonycoz-22125-openbsd-embed-20250624 -> upstream/smoke-me/jkeenan/gh-23265-tonycoz-22125-openbsd-embed-20250624
+ * [new branch]            smoke-me/jkeenan/gh-9972-bitwise-xor-20250808                  -> upstream/smoke-me/jkeenan/gh-9972-bitwise-xor-20250808
+ * [new branch]            smoke-me/khw-nocontext                                         -> upstream/smoke-me/khw-nocontext
+ * [new branch]            smoke-me/khw-strftime                                          -> upstream/smoke-me/khw-strftime
+ + 060adda81e...3e2c4b36ca smoke-me/tonyc/22125-openbsd-embed                             -> upstream/smoke-me/tonyc/22125-openbsd-embed  (forced update)
+ * [new branch]            smoke-me/tonyc/22883-perlio-eagain                             -> upstream/smoke-me/tonyc/22883-perlio-eagain
+ * [new branch]            smoke-me/tonyc/23226-atfork                                    -> upstream/smoke-me/tonyc/23226-atfork
+ * [new branch]            update-eupxs-entry-maintainers-20251001                        -> upstream/update-eupxs-entry-maintainers-20251001
+ * [new branch]            windows-ci                                                     -> upstream/windows-ci
+ * [new tag]               v5.41.13                                                       -> v5.41.13
+ * [new tag]               v5.38.5                                                        -> v5.38.5
+ * [new tag]               v5.38.5-RC1                                                    -> v5.38.5-RC1
+ * [new tag]               v5.40.3                                                        -> v5.40.3
+ * [new tag]               v5.40.3-RC1                                                    -> v5.40.3-RC1
+ * [new tag]               v5.42.0                                                        -> v5.42.0
+ * [new tag]               v5.42.0-RC1                                                    -> v5.42.0-RC1
+ * [new tag]               v5.42.0-RC2                                                    -> v5.42.0-RC2
+ * [new tag]               v5.42.0-RC3                                                    -> v5.42.0-RC3
+ * [new tag]               v5.43.0                                                        -> v5.43.0
+ * [new tag]               v5.43.1                                                        -> v5.43.1
+ * [new tag]               v5.43.2                                                        -> v5.43.2
+ * [new tag]               v5.43.3                                                        -> v5.43.3
+ * [new tag]               v5.43.4                                                        -> v5.43.4
+(system) [rapidcow@RCs-T480s perl5] (map_block_syn %)$ git rev-parse upstream/blead
+3359807b0494c8fc233491a274c6b5fe68da93fb
+(system) [rapidcow@RCs-T480s perl5] (map_block_syn %)$ git cat-file blob 3359807b0494c8fc233491a274c6b5fe68da93fb:Configure | nl -ba | sed -n 33,48p
+    33  cat >c1$$ <<EOF
+    34  ARGGGHHHH!!!!!
+    35
+    36  SCO csh still thinks true is false.  Write to SCO today and tell them that next
+    37  year Configure ought to "rm /bin/csh" unless they fix their blasted shell. :-)
+    38
+    39  (Actually, Configure ought to just patch csh in place.  Hmm.  Hmmmmm.  All
+    40  we'd have to do is go in and swap the && and || tokens, wherever they are.)
+    41
+    42  [End of diatribe. We now return you to your regularly scheduled programming...]
+    43  EOF
+    44  cat >c2$$ <<EOF
+    45
+    46  OOPS!  You naughty creature!  You didn't run Configure with sh!
+    47  I will attempt to remedy the situation by running sh for you...
+    48  EOF
+
+(the Perl code base never stops fascinating me....)
