@@ -9,7 +9,7 @@ the relevant terms of privacy policy.  See
 <https://team.endfindme.com/wisc/sdc/fa-25/public/privacy-policy>.
 
 *   Web site: <https://clubradar.endfindme.com/>
-*   Web docs: <https://rapidcow.github.io/>
+*   Web docs: [TODO]
 
 
 ## License
