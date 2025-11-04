@@ -116,5 +116,105 @@ index 0b8b225833..8264b6fada 100644
 
     my( $hex ) = unpack( 'H*', $mem );
 
-(this NEWer diff format is based on Mercurial `hg diff'!  i think
-mercurial is pretty cool too :)
+(this NEWer diff format is based on Mercurial `hg diff'!
+i think mercurial is pretty cool too :)
+
+and more...
+
+$ COLUMNS=90 man Data::Section >2/dev/null | head -38
+Data::Section(3)           User Contributed Perl Documentation           Data::Section(3)
+
+NAME
+       Data::Section - read multiple hunks of data out of your DATA section
+
+VERSION
+       version 0.200008
+
+SYNOPSIS
+         package Letter::Resignation;
+         use Data::Section -setup;
+
+         sub quit {
+           my ($class, $angry, %arg) = @_;
+
+           my $template = $class->section_data(
+             ($angry ? "angry_" : "professional_") . "letter"
+           );
+
+           return fill_in($$template, \%arg);
+         }
+
+         __DATA__
+         __[ angry_letter ]__
+         Dear jerks,
+
+           I quit!
+
+         --
+         {{ $name }}
+         __[ professional_letter ]__
+         Dear {{ $boss }},
+
+           I quit, jerks!
+
+         --
+         {{ $name }}
+
+Data::Section(3)           User Contributed Perl Documentation           Data::Section(3)
+
+NAME
+       Data::Section - read multiple hunks of data out of your DATA section
+
+VERSION
+       version 0.200008
+
+SYNOPSIS
+         package Letter::Resignation;
+         use Data::Section -setup;
+
+         sub quit {
+           my ($class, $angry, %arg) = @_;
+
+           my $template = $class->section_data(
+             ($angry ? "angry_" : "professional_") . "letter"
+           );
+
+           return fill_in($$template, \%arg);
+         }
+
+         __DATA__
+         __[ angry_letter ]__
+         Dear jerks,
+
+           I quit!
+
+         --
+         {{ $name }}
+         __[ professional_letter ]__
+         Dear {{ $boss }},
+
+           I quit, jerks!
+
+         --
+         {{ $name }}
+
+seriously, name me a language that gets as unhinged as Perl is....
+in a way Java could never be QvQ
+
+here i'll just dump some more links in case i don't make it through
+this semester's nightmare to blog about this
+
+on "why is perl blessing" today....
+  <https://www.reddit.com/r/perl/comments/dln0ky/perl_and_the_etymology_of_bless/>
+    <https://web.archive.org/web/20191026165641/https://stackoverflow.com/questions/58511044/perl-and-the-etymology-of-bless>
+      <https://www.perl.com/pub/1997/wall/keynote.html/>
+      <https://softpanorama.org/People/Wall/index.shtml#Perl_4>
+        <https://www.reddit.com/r/perl/comments/ilatqr/a_question_about_hostility_towards_perl/g3sxtxl/?utm_source=reddit&utm_medium=web2x&context=3>
+  <https://davidraab.github.io/posts/why-i-like-perls-oo/>
+
+i would never have guessed the favorite language of my life was
+not just the "popular" first language i ever picked up on...
+(and everyone else who is probably a Python fan is (if they care
+to think in the first place) probably very confused why i as an
+all-time fan of Python switched to Perl and rarely looked back!
+it's crazy!)
