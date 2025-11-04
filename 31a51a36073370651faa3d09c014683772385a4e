@@ -1,0 +1,20 @@
+and just for the record
+
+(bip/club-radar %)$ stat .github/README.md
+  File: .github/README.md
+  Size: 557             Blocks: 8          IO Block: 4096   regular file
+Device: 0,46    Inode: 25223094    Links: 1
+Access: (0644/-rw-r--r--)  Uid: (  984/rapidcow)   Gid: (  984/   users)
+Access: 2025-11-04 07:48:27.878765536 -0600
+Modify: 2025-11-02 19:23:07.824827540 -0600
+Change: 2025-11-02 19:23:07.826827545 -0600
+ Birth: 2025-11-02 18:58:42.155375771 -0600
+
+the last time i saved this files was roughly when i knew
+i needed a build system JUST for me; a dependency graph,
+a content-addressable protocol neutral URI schema; and a
+site manifest + metadata store.... i completed the first of
+the three of these while having the whole thing planned out
+in a very, VERY promising way.  like i wish i was bluffing
+but oh my gosh i think this would ACTUALLY work this time
+i'm so happyyyyyy :DDDD
