@@ -60,22 +60,22 @@ From https://github.com/Perl/perl5
 (system) [rapidcow@RCs-T480s perl5] (map_block_syn %)$ git rev-parse upstream/blead
 3359807b0494c8fc233491a274c6b5fe68da93fb
 (system) [rapidcow@RCs-T480s perl5] (map_block_syn %)$ git cat-file blob 3359807b0494c8fc233491a274c6b5fe68da93fb:Configure | nl -ba | sed -n 33,48p
-    33  cat >c1$$ <<EOF
-    34  ARGGGHHHH!!!!!
+    33	cat >c1$$ <<EOF
+    34	ARGGGHHHH!!!!!
     35
-    36  SCO csh still thinks true is false.  Write to SCO today and tell them that next
-    37  year Configure ought to "rm /bin/csh" unless they fix their blasted shell. :-)
+    36	SCO csh still thinks true is false.  Write to SCO today and tell them that next
+    37	year Configure ought to "rm /bin/csh" unless they fix their blasted shell. :-)
     38
-    39  (Actually, Configure ought to just patch csh in place.  Hmm.  Hmmmmm.  All
-    40  we'd have to do is go in and swap the && and || tokens, wherever they are.)
+    39	(Actually, Configure ought to just patch csh in place.  Hmm.  Hmmmmm.  All
+    40	we'd have to do is go in and swap the && and || tokens, wherever they are.)
     41
-    42  [End of diatribe. We now return you to your regularly scheduled programming...]
-    43  EOF
-    44  cat >c2$$ <<EOF
+    42	[End of diatribe. We now return you to your regularly scheduled programming...]
+    43	EOF
+    44	cat >c2$$ <<EOF
     45
-    46  OOPS!  You naughty creature!  You didn't run Configure with sh!
-    47  I will attempt to remedy the situation by running sh for you...
-    48  EOF
+    46	OOPS!  You naughty creature!  You didn't run Configure with sh!
+    47	I will attempt to remedy the situation by running sh for you...
+    48	EOF
 
 (the Perl code base never stops fascinating me....)
 
