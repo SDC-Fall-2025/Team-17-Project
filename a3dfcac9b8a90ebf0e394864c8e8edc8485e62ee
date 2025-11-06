@@ -1,0 +1,84 @@
+# NOTE: '\' line wrapping per RFC 8792
+Submitted-At: Thu, 06 Nov 2025 17:59:32 -0000 (1762451972)
+Created-At: Thu, 06 Nov 2025 17:59:30 -0000 (2025-11-06T17:59:30Z)
+Updated-At: Thu, 06 Nov 2025 17:59:30 -0000 (2025-11-06T17:59:30Z)
+Base-Uri: http://github.com/SDC-Fall-2025/Team-17-Project.git
+Base-Ref: refs/heads/master
+Base-Oid: 259684e4e99abea0f8ccdf88bde897542080a7f4
+Subject: PROJECT DECISION! Club Radar and boiletplate friends
+Content-Type: text/markdown; charset="UTF-8"
+Content-Length: 3830
+Content-Digest: \
+ sha=:uKP/7ePQii2k5k4dTtxODwGuSOk=:,\
+ sha-256=:tKbD5V5DOLYZ/eKu8Ceh38lmsoBEGewrQY0QgRR/3wg=:,\
+ sha-384=:5IlwLaRsIVVKIxcuucteqSkIBZD4RVDHQDG4AajDvlLKyfZSNcqsvxysgAxckBWS:,\
+ sha-512=:eCJ+ZgS433Ih1dCAfXRklyQusIxEHa4OwcpOgBBiUmLe/FIbcqTTCuhObwPZ51LwFzbvac/f6qbgk3E+UsJ2wA==:
+
+This is both *my* pull request (and a pull request example,
+for familiarizing people with the protocol!)
+
+Pull requests are always optional for any changes you make.
+But if you *do* decide to open a pull request, be prepared to
+write a summary (cover letter) like this & receive feedback...
+
+- [x] I have checked that my name and e-mail address are consistently reflected in all commits.
+- [x] I have reviewed that all GPG signatures are valid and match my GitHub identity (possibly vacuously so).
+
+(This checklist should be provided to you in the [PR template][];
+if not, please do me a favor and prepend it to your PR body.
+It is not reinforced if you submit patches through the mailing list.)
+
+[PR template]: https://github.com/SDC-Fall-2025/Team-17-Project/blob/master/.github/pull-request-template.md?plain=1
+
+# Cover letter
+
+On Thursday, October 16, we had our first meeting about our team project,
+where we had the first formal discussion regarding the project we want to
+work on as a team. [1]  The consensus among those who attended was a club
+discovery service, dubbed "Club Radar" by me (mostly humorously). [2]
+The official-ish meeting notes were subsequently published by me on the
+morning of October 22 for those who could not attend the meeting.
+
+On Thursday, October 23, I opened a Discord poll in hopes of giving those
+who could not attend a choice to voice their project preference [3]
+(and a chance to propose their projects, which I forgot to add a poll
+option for or state that very clearly... sorry if you had ideas but didn't
+share them because you believed you couldn't propose any more then. :x)
+Among the five participants who voted (excluding me, since I am neutral
+about this XD), both "Club Radar" and "Minecraft with Computer Vision"
+received the maximum number of votes from 3 distinct sets of team members
+(albeit not mutually disjoint since I intentionally made it so that each
+participant can vote on more than one project).
+
+Despite the obvious (in hindsight at least) winner of "Club Radar" out of
+*both* elections, I tactlessly decided that we needed one more *final* in-
+person meeting to settle the tie, once and for all.
+
+By October 29, two weeks have passed since our first meeting, and the
+official team leader did not publish any plans for a second meeting.
+I urged the leader to consider a second meeting, but the leader only
+responded with a When2Meet.  As of me writing this (November 6, 10 AM),
+only 3 members (including me) have filled out their time preference.
+
+On October 31, I informally stated that the project decision will be
+loosely finalized if any member chooses to contribute a non-negligible
+amount of code. [4]  As of me writing this, no one has pushed any code
+to any Branch of Interest-worthy Project (bip/*), despite most members
+having push access to this repository.
+
+By 10 AM on the same day, I myself have contributed a non-negligible
+amount (at least in my consideration) in an effort to deploy the web
+site's backend and frontend components to Vercel (see shortlog below).
+
+On November 4, I informally stated that the project decision will be
+passively finalized if NO member expresses a will that overrides mine.
+[5]
+
+[1]: https://rapidcow.github.io/site-wisc-sdc-fa25-team/meetings/2025-10-16/#project-brainstorm
+[2]: https://rapidcow.github.io/site-wisc-sdc-fa25-team/ideas/club-radar
+[3]: https://rapidcow.github.io/site-wisc-sdc-fa25-team/polls/2025-10-22/project
+[4]: https://discord.com/channels/1428212879026552872/1428212880184184854/1433978645252145243
+[5]: https://discord.com/channels/1428212879026552872/1428212880184184854/1435491953595908177
+
+Today is November 6 and this will be the FORMAL statement that our
+team project will be this club discovery web site dubbed Club Radar.
