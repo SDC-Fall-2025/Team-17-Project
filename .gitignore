@@ -36,7 +36,7 @@ venv
 #####@  who is conscious about the tools they use should exclude   @######
 #####@  these files  from version control  by configuring  their   @######
 #####@  local gitignore rules (either with core.excludesFile, or   @######
-#####@  $GITDIR/info/exclude),  or just don't git-add(1) them in   @######
+#####@  $GIT_DIR/info/exclude), or just don't git-add(1) them in   @######
 #####@  the first place.  Having suffered through  the hell that   @######
 #####@  is CS400, I can confidently say that it will happen with   @######
 #####@  certainty that *someone* will happily commit these files   @######
