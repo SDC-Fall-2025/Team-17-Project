@@ -143,11 +143,3 @@ desktop.ini
 # <https://piazza.com/class/m5x25kjamnl2rk/post/897>
 .__afs*
 
-# Core dump???
-# <https://stackoverflow.com/a/16048288/19411800>
-# <https://www.linuxhowtos.org/Tips%20and%20Tricks/coredump.htm>
-# <https://wiki.archlinux.org/title/Core_dump>
-# Let's just ignore the most basic forms: core and core.<pid>
-# (and pray that nobody on this team plans to write a manpage)
-core
-core.[0-9]*
