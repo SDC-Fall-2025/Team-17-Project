@@ -67,9 +67,78 @@ venv
 .DS_Store
 ._*
 __MACOSX/
-# Windows too
+
+### Toptal.com's macos template ###
+# More from <https://www.toptal.com/developers/gitignore/> (thanks!)
+# (also gets redirected from <https://gitignore.io/> apparently)
+# NOTE NOTE!!!  If you open this file as a Unix line-feed delimited
+# text file, this would show "Icon^M^M" (that is two carriage returns)
+# But if you have used MacOS, you might know that the file is actually
+# named 'Icon\r' with one carriage return (or more (in)famously "Icon?")
+# it's because Git interprets the CRLF sequence as a DOS newline. [*]
+# (Why pre-OSX Mac OS uses CR as line terminators, as well as why
+# they use colons for path component separators instead of either
+# the DOS "\" or the URI / Unix "/", is something well beyond me
+# and the scope of this comment.)
+#
+# [ On the other hand, once upon a time of dinasours, EBCDIC used
+# something called NL (newline) to represent the equivalent of the
+# CR+LF sequence used by TELNET and friends, and to represent it
+# the ISO standards mapped it into NEL (U+0085, next line).  Now I
+# don't like Apple's rebellion, but at least we know they were not
+# the ONLY rebel in the room. :) ]
+#
+# See: <https://stackoverflow.com/a/30755378/19411800>
+#      <https://stackoverflow.com/a/33974028/19411800> [*]
+#      <https://superuser.com/q/298785/2641288>
+#      <https://superuser.com/a/439443/2641288>
+#      <https://eclecticlight.co/2023/03/04/custom-finder-icons-resources-and-mac-os-history/>
+# And marginally related:
+#      <https://www.reddit.com/r/ProgrammerHumor/comments/7mbbdl/comment/drtpif4/>
+#      <https://stackoverflow.com/a/1761086/19411800>
+#      <https://en.wikipedia.org/wiki/Newline#History>
+#      <https://www.rfc-editor.org/old/EOLstory.txt>
+##### Icon^M^M^J <<<
+Icon
+##### >>> Icon^M^M^J
+.AppleDouble
+.LSOverride
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+# iCloud generated files
+*.icloud
+
+### Toptal.com's windows template ###
 Thumbs.db
-desktop.ini
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+# Dump file
+*.stackdump
+# Folder config file
+[Dd]esktop.ini
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+# Windows shortcuts
+*.lnk
 
 ##****---> IDE
 # https://gist.github.com/GhostofGoes/94580e76cd251972b15b4821c8a06f59
