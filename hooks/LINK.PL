@@ -5,11 +5,11 @@ use FindBin;
 (undef, undef, $name) = File::Spec->splitpath($name);  # a less gnarly version of $0 =~ m!\b([^/]+)\.[^\.]+\z!
 chomp (my $nonbare = `git rev-parse --is-inside-work-tree`);
 $? == 0 or die "E: git died with wait status $? (are you in a git repository?)\n";
-$nonbare eq 'true' or die "E: pre-commit hook is useless in a bare repository.\n";
+$nonbare eq 'true' or die "E: $name hook is useless in a bare repository.\n";
 chomp (my $GITDIR = `git rev-parse --git-dir`);
 my $dst = File::Spec->catfile($FindBin::Bin, $name);
 my $pwd = File::Spec->catfile($GITDIR, 'hooks');
-my $src = File::Spec->catfile($GITDIR, 'hooks', 'pre-commit');
+my $src = File::Spec->catfile($GITDIR, 'hooks', $name);
 if (-l $src) {
 	unlink $src or warn "warning: unlink $src: $!\n"
 }
