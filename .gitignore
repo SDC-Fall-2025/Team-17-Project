@@ -1,6 +1,19 @@
 
 ##****---> Node.js
 node_modules/
+# In the (very weird) scenario that the worktree is at the root
+# of a FS, /.pnpm-store/ would be created.  I can't imagine a
+# scenario where this would happen but here you go anyways...
+# <https://github.com/orgs/pnpm/discussions/6936>
+#   <https://pnpm.io/settings#storedir>
+#   <https://github.com/creatorsgarten/techcal.dev/pull/108>
+#     <https://github.com/creatorsgarten/techcal.dev/commit/7950f60c0622bc969dc880e37f054f587b048e2f>
+.pnpm-store/
+# On the other hand, virtual-store-dir lives in node_modules/.pnpm
+# That means we *probably* shouldn't have to explicitly ignore it,
+# but add it for completeness anyways.
+# <https://pnpm.io/settings#virtualstoredir>
+.pnpm/
 
 ##****---> Python
 # pyenv local
