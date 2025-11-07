@@ -5,6 +5,9 @@ Updated-At: Thu, 06 Nov 2025 17:59:30 -0000 (2025-11-06T17:59:30Z)
 Base-Uri: http://github.com/SDC-Fall-2025/Team-17-Project.git
 Base-Ref: refs/heads/master
 Base-Oid: 259684e4e99abea0f8ccdf88bde897542080a7f4
+Head-Uri: http://github.com/SDC-Fall-2025/Team-17-Project.git
+Head-Ref: refs/heads/bip/club-radar
+Head-Oid: a3dfcac9b8a90ebf0e394864c8e8edc8485e62ee
 Subject: PROJECT DECISION! Club Radar and boiletplate friends
 Content-Type: text/markdown; charset="UTF-8"
 Content-Length: 3830
