@@ -17,6 +17,137 @@ poetry.toml
 venv
 .venv
 
+##****---> Secrets
+
+.env
+.env.local
+.env.production
+
 ##****---> My stuff!
 # prove TAP harness state
 .prove
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@###
+####@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#####
+#####@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@######
+#####@  END OF ESSENTIAL RULES. The following rules are provided   @######
+#####@  for convenience. They should be "obvious" in that anyone   @######
+#####@  who is conscious about the tools they use should exclude   @######
+#####@  these files  from version control  by configuring  their   @######
+#####@  local gitignore rules (either with core.excludesFile, or   @######
+#####@  $GITDIR/info/exclude),  or just don't git-add(1) them in   @######
+#####@  the first place.  Having suffered through  the hell that   @######
+#####@  is CS400, I can confidently say that it will happen with   @######
+#####@  certainty that *someone* will happily commit these files   @######
+#####@  were they  not to be explicitly listed  in a repository-   @######
+#####@  wide gitignore. Hence the following rather verbose rules.  @######
+#####@      (sorry, but someone's gotta keep the garbage out! ;P)  @######
+#####@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@######
+####@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#####
+##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@###
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+
+##****---> Obvious OS-specific garbage
+# "Mac turd" as coined by <https://apple.stackexchange.com/a/14981>
+# (Note that ._* should not appear in APFS, though it would on HFS.)
+.DS_Store
+._*
+__MACOSX/
+# Windows too
+Thumbs.db
+desktop.ini
+
+##****---> IDE
+# https://gist.github.com/GhostofGoes/94580e76cd251972b15b4821c8a06f59
+.vscode/
+.idea/
+# Probably overkill
+# <https://stackoverflow.com/a/29998583/19411800>
+#.idea_modules/
+
+##****---> Vim
+# https://github.com/github/gitignore/blob/main/Global/Vim.gitignore
+# If you do not set 'directory', they are created in the current directory.
+# See ":help swap-file" in recover.txt.  Also see
+# <https://stackoverflow.com/a/38023956>
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+# Vim backup and undo files respectively.  Just in case some-
+# one is evil enough to create them in the CURRENT directory?
+*~
+*.un~
+### I don't think anyone is insane enough to bring these into here.
+# .netrwhist
+
+##****---> Emacs
+# https://github.com/github/gitignore/blob/main/Global/Emacs.gitignore
+# I personally don't use Emacs so I'll just take the ones I found in
+# <https://stackoverflow.com/q/52391883/19411800>... (apparently
+# #*#'s are the Auto Save Files while the .#*#'s the File Locks.)
+.\#*
+\#*\#
+
+##****---> ( misc )
+# Generic backup suffixes
+*.bak
+*.old
+### In case anyone tries to resolve merge conflicts
+### (even though i said you don't have to do it...)
+# *.orig files are created after conflict resolution.
+# See mergetool.keepBackup in git-config(1),
+# "TEMPORARY FILES" in git-mergetool(1), and
+# <https://stackoverflow.com/a/37472341/19411800>.
+*.orig
+# Rebase files look like:
+#     README_BACKUP_911459.md
+#     README_BASE_911459.md
+#     README_LOCAL_911459.md
+#     README_REMOTE_911459.md
+# though at some point (at least in Dec 2012)
+# it might have looked like:
+#     index.shtml.BACKUP.16908.shtml
+#     index.shtml.BASE.16908.shtml
+#     index.shtml.LOCAL.16908.shtml
+#     index.shtml.REMOTE.16908.shtml
+# (See <https://stackoverflow.com/q/14044765/19411800> and
+# <https://forum.upcase.com/t/git-rebase-and-leftover-files/2476>
+# for examples) ????  I am very confused.  But let me
+# just try my best to ignore them as much as I can.
+*[._]BACKUP[._]*
+*[._]BASE[._]*
+*[._]LOCAL[._]*
+*[._]REMOTE[._]*
+
+# Andrew File System: "... '.__afs####' names are created when a file is
+# deleted while another (or the same) process is still writing to it.
+# This is then normally cleaned up at the time the process which had it
+# open closes it.  Example:
+#     rm: cannot remove `chen_top//.__afs2EC2': Device or resource busy
+#     rm: cannot remove `chen_top//.__afsBBFE': Device or resource busy
+# <https://twiki.cern.ch/twiki/bin/view/Main/LxplusProblem#AFS_directories_with_name_afs>
+#
+# In CS400 (Spring 2025), some people have run into the same issue when
+# working on a weekly activity (which was involved with using Git on the
+# CSL machines over SSH):
+#     warning: failed to remove .__afsA9DD: Device or resource busy
+#     warning: failed to remove .__afsC843: Device or resource busy
+#     warning: failed to remove .__afsD94: Device or resource busy
+#
+#     Fast-forwarding to: feature
+#     error: Untracked working tree file '.__afsC843' would be overwritten by merge.
+#     Merge with strategy octopus failed.
+# <https://piazza.com/class/m5x25kjamnl2rk/post/897>
+.__afs*
+
+# Core dump???
+# <https://stackoverflow.com/a/16048288/19411800>
+# <https://www.linuxhowtos.org/Tips%20and%20Tricks/coredump.htm>
+# <https://wiki.archlinux.org/title/Core_dump>
+# Let's just ignore the most basic forms: core and core.<pid>
+# (and pray that nobody on this team plans to write a manpage)
+core
+core.[0-9]*
