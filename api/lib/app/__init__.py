@@ -18,7 +18,7 @@ class App(object):
 
         @app.route('/api/v1/greet')
         def index():
-            payload = json.dumps({'message': self.greet()})
+            payload = json.dumps({'message': self.greet(), 'ok': True})
             return flask.Response(payload, content_type='application_json')
 
         return app
