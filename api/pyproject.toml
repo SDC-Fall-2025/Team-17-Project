@@ -1,7 +1,7 @@
 [project]
 name = "wisc-club-radar-app"
 version = "0.0.0"
-description = ""
+description = "club radar api backend"
 authors = [
     {name = "Ethan Meng",email = "uwisc@endfind.me"}
 ]
