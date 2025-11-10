@@ -7,16 +7,18 @@ from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from werkzeug.middleware.proxy_fix import ProxyFix
 from werkzeug.middleware.http_proxy import ProxyMiddleware
 
-# 1️⃣  our local flask app (WSGI)
 from app.wsgi import app
 
-# 2️⃣  proxy config
+# a trivial base WSGI app, used only to satisfy the interface
+def empty_app(environ, start_response):
+    res = Response("Not Found", status=404)
+    return res(environ, start_response)
+
 vite_proxy = ProxyMiddleware(
-    None,
+    empty_app,
     {
         "/": {
-            "target": "http://127.0.0.1:5173/",
-            "strip_path": False,
+            "target": "http://localhost:5173/",
         }
     },
 )
