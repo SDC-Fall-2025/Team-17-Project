@@ -90,6 +90,3 @@ $ pnpm dlx sv create frontend
 │
 └  You're all set!
 ```
-
-An additional package [`sveletekit-i18n`](https://github.com/sveltekit-i18n/lib) was installed,
-though it might have been a mistake...
