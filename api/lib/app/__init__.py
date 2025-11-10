@@ -22,7 +22,7 @@ class App(object):
                 "Here are the params I got anyways:",
                 params]
 
-    def to_wsgi_app(self):
+    def to_flask_app(self):
         app = flask.Flask(self.name)
 
         @app.route('/api/v1/greet')
@@ -50,3 +50,6 @@ class App(object):
             return flask.Response(payload, content_type='application/json')
 
         return app
+
+    def to_wsgi_app(self):
+        return self.to_flask_app()

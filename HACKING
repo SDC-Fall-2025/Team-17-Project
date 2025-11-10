@@ -120,7 +120,7 @@ This runs it on port 8000.  Though you may choose a different port:
 To get the full command usage, pass -h:
 
     $ poetry run python -m app -h
-    usage: __main__.py [-h] [-d] [-b B] [port]
+    usage: __main__.py [-h] [-d] [-b BIND] [--cors] [port]
 
     positional arguments:
       port        listening port (default: 8000)
@@ -129,3 +129,4 @@ To get the full command usage, pass -h:
       -h, --help  show this help message and exit
       -d          enable debug (default: False)
       -b BIND     bind address (default: 127.0.0.1)
+      --cors      allow Cross-Origina Requests (default: False)
