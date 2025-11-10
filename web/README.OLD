@@ -90,3 +90,30 @@ $ pnpm dlx sv create frontend
 │
 └  You're all set!
 ```
+
+## Tailwind CSS
+
+Holy crap this is confusing as hell
+
+TAILWIND IS NOW v4????
+
+* <https://tailwindcss.com/docs/upgrade-guide#using-vite>
+* <https://tailwindcss.com/docs/installation/framework-guides/sveltekit>
+
+```
+$ pnpm add -D tailwindcss postcss autoprefixer
+$ pnpm list tailwindcss
+devDependencies:
+tailwindcss 4.1.17
+```
+
+and there is no `npx tailwindcss init`.... sadge :<
+
+To use it with Vite I need this guy apparently...
+
+```
+$ pnpm add -D @tailwindcss/vite
+$ pnpm list @tailwindcss/vite
+devDependencies:
+@tailwindcss/vite 4.1.17
+```
