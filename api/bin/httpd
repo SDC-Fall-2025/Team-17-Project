@@ -1,35 +1,27 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from werkzeug.wrappers import Request, Response
-from werkzeug.serving import run_simple
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from werkzeug.middleware.proxy_fix import ProxyFix
 from werkzeug.middleware.http_proxy import ProxyMiddleware
+from werkzeug.exceptions import NotFound
 
-from app.wsgi import app
+from app.wsgi import app as backend
 
-# a trivial base WSGI app, used only to satisfy the interface
-def empty_app(environ, start_response):
-    res = Response("Not Found", status=404)
-    return res(environ, start_response)
-
-vite_proxy = ProxyMiddleware(
-    empty_app,
-    {
-        "/": {
-            "target": "http://localhost:5173/",
-        }
-    },
-)
+vite_proxy = ProxyMiddleware(NotFound(), {
+    "/": {
+        "target": "http://localhost:5173/",
+    }
+})
 
 # mount Flask first, then fallback to vite
 application = DispatcherMiddleware(vite_proxy, {
-    "/api": app
+    "/api": backend
 })
 
 # optional: makes X-Forwarded headers behave correctly
 application = ProxyFix(application)
 
 if __name__ == "__main__":
+    from werkzeug.serving import run_simple
     run_simple("127.0.0.1", 8080, application, use_reloader=True, use_debugger=True)
