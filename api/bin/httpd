@@ -8,15 +8,15 @@ from werkzeug.exceptions import NotFound
 
 from app.wsgi import app as backend
 
-app = ProxyMiddleware(
-    DispatcherMiddleware(
+app = DispatcherMiddleware(
+    ProxyMiddleware(
         NotFound(), {
-            "/api": backend
+            "/": {
+                "target": "http://localhost:5173/",
+            }
         }
     ), {
-        "/": {
-            "target": "http://localhost:5173/",
-        }
+        "/api": backend
     }
 )
 
