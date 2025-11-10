@@ -3,10 +3,38 @@
 
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from werkzeug.middleware.proxy_fix import ProxyFix
-from werkzeug.middleware.http_proxy import ProxyMiddleware
+from werkzeug.middleware.http_proxy import ProxyMiddleware as WerkzeugProxyMiddleware
 from werkzeug.exceptions import NotFound
 
 from app.wsgi import app as backend
+
+class ProxyMiddleware(WerkzeugProxyMiddleware):
+    """
+    Fix this silly middleware that doesn't know how to route
+    the root directory, the exception with less than two slashes
+    like all other nonempty directories.  It's a little hacky as
+    we need to peek inside the internal state of the object.
+    """
+    # def __init__(
+    #     self,
+    #     app: WSGIApplication,
+    #     targets: t.Mapping[str, dict[str, t.Any]],
+    #     chunk_size: int = 2 << 13,
+    #     timeout: int = 10,
+    # ) -> None:
+    def __init__(self, app, targets):
+        super().__init__(app, targets)
+        # want to patch this bit:
+        #     self.targets = {
+        #         f"/{k.strip('/')}/": _set_defaults(v)
+        #         for k, v in targets.items()
+        #     }
+        # The root directory ("/" and "") both get mapped to "//",
+        # and PATH_INFO is ever going to start with that.  So...
+        try:
+            self.targets['/'] = self.targets.pop('//')
+        except KeyError:  # no '//' found; just ignore
+            pass
 
 def unshift_path_info(app, prefix):
     """
