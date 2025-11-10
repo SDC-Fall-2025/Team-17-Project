@@ -17,5 +17,5 @@ if __name__ == '__main__':
     app = App().to_wsgi_app()
     if args.cors:
         from flask_cors import CORS
-        app = CORS(app)
+        CORS(app)
     app.run(debug=args.d, host=args.b, port=args.port)
