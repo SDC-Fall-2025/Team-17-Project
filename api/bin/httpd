@@ -8,6 +8,24 @@ from werkzeug.exceptions import NotFound
 
 from app.wsgi import app as backend
 
+def unshift_path_info(app, prefix):
+    """
+    Decorator to un-shift a path?  The reason is that
+    DispatcherMiddleWare strips the prefix.  That is:
+
+         PATH_INFO          SCRIPT_NAME   PATH_INFO
+         /api/v1/greet  =>  /api          v1/greet
+
+    And we're going to squash 'em... it's kind of stupid tbh.
+    """
+    def wrapper(environ, start_response):
+        script_name = environ.get('SCRIPT_NAME', '')
+        if script_name:
+            path_info = environ.get('PATH_INFO', '')
+            environ['PATH_INFO'] = script_name + path_info
+        return app(environ, start_response)
+    return wrapper
+
 app = DispatcherMiddleware(
     ProxyMiddleware(
         NotFound(), {
@@ -16,7 +34,7 @@ app = DispatcherMiddleware(
             }
         }
     ), {
-        "/api": backend
+        "/api": unshift_path_info(backend, '/api'),
     }
 )
 
