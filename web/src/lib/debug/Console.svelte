@@ -23,7 +23,7 @@
     <!-- Scrollable log area -->
     <div class="flex-1 overflow-y-auto p-2">
       <!-- Split (CR)LF https://stackoverflow.com/a/5035005/19411800 -->
-      {#each $strbuf.split(/\r?\n/) as line, i}
+      {#each $strbuf.split(/\r?\n/) as line, i (i)}
         <pre>{line}</pre>
       {:else}
         <div class="opacity-50 italic">(empty)</div>

@@ -50,7 +50,7 @@
         >Tags:</label
       >
       <div class="flex flex-wrap gap-2">
-        {#each tags as tag, i}
+        {#each tags as tag, i (i)}
           <button
             id="{tag}.{i}"
             type="button"
