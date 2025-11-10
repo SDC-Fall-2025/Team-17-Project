@@ -11,8 +11,11 @@ export function getenv(name) {
       }
       console.log(window.location);
       const { protocol, hostname, port } = window.location;
-      /* On port 8080, api/bin/httpd does this for us */
-      return port === '8080' ? `/api` : `${protocol}//${hostname}:8000/api`;
+      /*
+       * On port 8080, api/bin/httpd does this for us.
+       * On port 5173, WE'D be the one doing it (see vite.config.ts).
+       */
+      return port === '8080' || port === '5173' ? `/api` : `${protocol}//${hostname}:8000/api`;
     }
     default:
       return undefined;

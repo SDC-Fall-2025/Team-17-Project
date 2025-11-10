@@ -32,5 +32,16 @@ export default defineConfig({
         }
       }
     ]
+  },
+  /* Configure the server proxy to the backend as two independently running
+   * HTTP servers. See <https://vite.dev/config/server-options#server-proxy>. */
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8000',
+        /* I suppose we want this... */
+        changeOrigin: true
+      }
+    }
   }
 });
