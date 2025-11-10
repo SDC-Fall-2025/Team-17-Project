@@ -11,7 +11,6 @@ CREATE TABLE clubs (
     member_fee VARCHAR(64),
     member_count INTEGER DEFAULT 0,
     registration VARCHAR(20) DEFAULT 'open',
-    club_age INTEGER,
     audience VARCHAR(100)
 );
 COMMIT;
