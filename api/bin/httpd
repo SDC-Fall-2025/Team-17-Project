@@ -8,20 +8,18 @@ from werkzeug.exceptions import NotFound
 
 from app.wsgi import app as backend
 
-vite_proxy = ProxyMiddleware(NotFound(), {
-    "/": {
-        "target": "http://localhost:5173/",
+app = ProxyMiddleware(
+    DispatcherMiddleware(
+        NotFound(), {
+            "/api": backend
+        }
+    ), {
+        "/": {
+            "target": "http://localhost:5173/",
+        }
     }
-})
-
-# mount Flask first, then fallback to vite
-application = DispatcherMiddleware(vite_proxy, {
-    "/api": backend
-})
-
-# optional: makes X-Forwarded headers behave correctly
-application = ProxyFix(application)
+)
 
 if __name__ == "__main__":
     from werkzeug.serving import run_simple
-    run_simple("127.0.0.1", 8080, application, use_reloader=True, use_debugger=True)
+    run_simple("127.0.0.1", 8080, app, use_reloader=True, use_debugger=True)
