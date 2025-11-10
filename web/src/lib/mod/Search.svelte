@@ -1,5 +1,5 @@
 <script>
-  import search from '$lib/sub/search.ts';
+  import search from '$lib/sub/search';
   import Console from '$lib/debug/Console.svelte';
 
   var query = '';

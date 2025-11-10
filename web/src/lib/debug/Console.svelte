@@ -1,6 +1,6 @@
 <!-- Pop-up debug panel -->
 <script lang="ts">
-  import { strbuf } from './conctl.ts';
+  import { strbuf } from './conctl';
 </script>
 
 {#if $strbuf !== ''}

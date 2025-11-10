@@ -1,5 +1,5 @@
-import { strbuf } from '$lib/debug/conctl.ts';
-import { getenv } from '$lib/etc/env.ts';
+import { strbuf } from '$lib/debug/conctl';
+import { getenv } from '$lib/etc/environ';
 
 export default (query) => {
   fetch(`${getenv('API_BASE_URL')}/v1/search`, {
