@@ -2,18 +2,18 @@
   import search from '$lib/sub/search.ts';
   import Console from '$lib/debug/Console.svelte';
 
-  var query = "";
+  var query = '';
   var selectedTags = [];
-  var memberFee = "";
-  var registration = "";
-  var activeMembers = "";
-  var clubAge = "";
-  var audience = "";
+  var memberFee = '';
+  var registration = '';
+  var activeMembers = '';
+  var clubAge = '';
+  var audience = '';
 
-  const tags = ["Sports", "Music", "Art", "STEM", "Cultural"];
-  const toggleTag = tag => {
+  const tags = ['Sports', 'Music', 'Art', 'STEM', 'Cultural'];
+  const toggleTag = (tag) => {
     selectedTags = selectedTags.includes(tag)
-      ? selectedTags.filter(t => t !== tag)
+      ? selectedTags.filter((t) => t !== tag)
       : [...selectedTags, tag];
   };
   const getQueryParams = () => ({
@@ -46,7 +46,9 @@
   <div class="filters space-y-4">
     <!-- Tags -->
     <div>
-      <label for="{tags.map((elt, i) => 'tag-' + i).join(' ')}" class="font-semibold block mb-2">Tags:</label>
+      <label for={tags.map((elt, i) => 'tag-' + i).join(' ')} class="font-semibold block mb-2"
+        >Tags:</label
+      >
       <div class="flex flex-wrap gap-2">
         {#each tags as tag, i}
           <button
@@ -54,8 +56,8 @@
             type="button"
             class="px-3 py-1 rounded-full border text-sm transition-colors
                    {selectedTags.includes(tag)
-                     ? 'bg-gray-800 text-white border-gray-800'
-                     : 'bg-gray-100 hover:bg-gray-200'}"
+              ? 'bg-gray-800 text-white border-gray-800'
+              : 'bg-gray-100 hover:bg-gray-200'}"
             on:click={() => toggleTag(tag)}
           >
             {tag}
@@ -120,10 +122,7 @@
 
   <!-- Submit -->
   <form on:submit|preventDefault={submit} class="pt-4">
-    <button
-      type="submit"
-      class="bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700"
-    >
+    <button type="submit" class="bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700">
       Search
     </button>
   </form>

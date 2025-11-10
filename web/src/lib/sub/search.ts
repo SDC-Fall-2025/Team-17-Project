@@ -7,13 +7,11 @@ export default (query) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(query)
   })
-  /* response.json() returns yet ANOTHER Promise: =_=
-   * https://stackoverflow.com/q/39435842/19411800 */
-  .then(response => response.json())
-  .then(
-    payload => strbuf.set(JSON.stringify(payload, null, 2))
-  )
-  .catch(err => {
-    strbuf.set(`Uh oh, error: ${(err as Error).message}`);
-  });
-}
+    /* response.json() returns yet ANOTHER Promise: =_=
+     * https://stackoverflow.com/q/39435842/19411800 */
+    .then((response) => response.json())
+    .then((payload) => strbuf.set(JSON.stringify(payload, null, 2)))
+    .catch((err) => {
+      strbuf.set(`Uh oh, error: ${(err as Error).message}`);
+    });
+};

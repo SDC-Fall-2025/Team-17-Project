@@ -1,17 +1,17 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 a {
-    @apply underline text-blue-500;
+  @apply underline text-blue-500;
 }
 
 a:hover {
-    @apply underline font-semibold text-blue-500;
+  @apply underline font-semibold text-blue-500;
 }
 
 a:visited {
-    @apply underline text-purple-700;
+  @apply underline text-purple-700;
 }
 
 a:hover {
-    @apply underline font-semibold text-purple-500;
+  @apply underline font-semibold text-purple-500;
 }
